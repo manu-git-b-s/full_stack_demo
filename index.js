@@ -1,14 +1,13 @@
 import mongoose from "mongoose";
 import app from "./app.js";
+import { PORT, MONGODB_URI } from "./utils.js/config.js";
 
 // Connect to mongoDB
 mongoose
-  .connect(
-    "mongodb+srv://manupriyan:UWgzU8eaUI69yPjG@clusteroriginal.ecb2fdq.mongodb.net/fullstackDemo"
-  )
+  .connect(MONGODB_URI)
   .then(() => {
     console.log("Connected to mongodb");
-    app.listen(8080, () => {
+    app.listen(PORT, () => {
       console.log(`Server is running on the port 8080`);
     });
   })
